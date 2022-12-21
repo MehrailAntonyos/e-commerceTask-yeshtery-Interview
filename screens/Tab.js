@@ -3,6 +3,7 @@ import { StyleSheet, Image} from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Flex from './Flex';
+import Product from './Product';
 
 const Tab = () => {
   const Tab = createBottomTabNavigator();
@@ -24,7 +25,7 @@ const Tab = () => {
         ),
       }}
      >
-      <Tab.Screen name='Product Details' component={Flex}></Tab.Screen>
+      <Tab.Screen name='Scan Products' component={Flex}></Tab.Screen>
     </Tab.Navigator>
   )
 }

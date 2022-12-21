@@ -25,7 +25,7 @@ const Flex = (props) => {
 
             {/* {console.log("yessssssssss")} */}
             {/* {console.log(item)} */}
-            <TouchableOpacity onPress={() => props.navigation.navigate("Product", { item })}><View style={{ justifyContent: "flex-start", alignItems: "flex-start", margin: 3 }}>
+            <TouchableOpacity onPress={() => props.navigation.navigate("Product Details", { item })}><View style={{ justifyContent: "flex-start", alignItems: "flex-start", margin: 3 }}>
               <Image source={{ uri: `https://api-dev.yeshtery.com/v1/yeshtery/files/${item.image_url}?height=500` }} style={{ width: 90, height: 90, borderRadius: 8 }} />
             </View>
             </TouchableOpacity>

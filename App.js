@@ -21,7 +21,7 @@ export default function App() {
             }} >
 
             </Stack.Screen>
-            <Stack.Screen name='Product' component={Product} />
+            <Stack.Screen name='Product Details' component={Product} />
             {/* <Stack.Screen name='ProductDetails' component={Product} /> */}
             <Stack.Screen name='Scan Code' component={ScanCode} />
           </Stack.Navigator>

@@ -1,36 +1,33 @@
-import { Button, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { LinearGradient } from 'expo-linear-gradient';
 
 const Product = (props) => {
-  console.log(props);
+  // console.log(props);
   const [product, setProductDetails] = useState(props.route.params.item);
 
-  //  const [productDetails,setProductDetails]=useState(props.route.params.item);
-  console.log("get idddddddddddddd")
-  console.log(product.id)
+  // console.log(product.id)
   useEffect(() => {
-    console.log("producccccccccct")
     axios.get(`https://api-dev.yeshtery.com/v1/yeshtery/product?product_id=${product.id}`).then((res) => {
-      console.log("finaaaaaaaaaaaaaaaaaaaaaaaaaaallllllllll")
-      console.log(res.data);
+
+      // console.log(res.data);
       setProductDetails(res.data);
     })
   }, [])
+
   let specialCharColorName = /[.\-=/_]/
-  // let productColors = product.default_variant_features == null ? 'red' : `${specialCharColorName.test(product.default_variant_features.color.toString().toLowerCase()) ? typeof( product.default_variant_features.color.toString().toLowerCase().split(/[.\-=/_]/) ): typeof( product.default_variant_features.color.toString().toLowerCase())}`
+
   let productColors = product.default_variant_features == null ? 'red' : product.default_variant_features.color.toString().toLowerCase()
-  console.log("colooooorrrrrr", productColors)
+  // console.log("color", productColors)
   let productColorsDivision = productColors.split(specialCharColorName)
-  console.log(productColorsDivision)
+  // console.log(productColorsDivision)
 
   return (
     <View style={{ backgroundColor: 'white', width: 400, display: 'flex', height: 700 }}>
       <View style={styles.productCardCetails}>
-        {console.log(product.id)}
-        {console.log("detailsssssssssssssssssssssss")}
-        {console.log(product.default_variant_features)}
+        {/* {console.log(product.id)} */}
+        {/* {console.log(product.default_variant_features)} */}
         <Image source={{ uri: `https://api-dev.yeshtery.com/v1/yeshtery/files/${product.image_url}` }} style={{
           width: 200, height: 200, borderRadius: 10, borderRadius: 5,
           shadowColor: 'black',
@@ -38,7 +35,7 @@ const Product = (props) => {
           shadowOffset: { width: 0, height: 2 },
           shadowRadius: 5,
           elevation: 3,
-          marginLeft:50
+          marginLeft: 50
         }} />
 
         <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -47,10 +44,7 @@ const Product = (props) => {
         </View>
 
         <Text style={{ color: 'rgba(9, 10, 10, 0.6)', marginTop: 5, marginBottom: 5 }}>{product.description}</Text>
-        {console.log("nulllllll or noooot ", product.default_variant_features)}
-
-        {/* <Text>{product.default_variant_features == null ? "equal null handling error" : product.default_variant_features.color}</Text> */}
-
+        {/* {console.log("nullor not ", product.default_variant_features)} */}
 
         <Text style={{ color: '#1F54CF', fontSize: 16, fontWeight: '500', marginTop: 5 }}>Color</Text>
         <View style={{ display: 'flex', flexDirection: 'row' }}>
@@ -67,7 +61,6 @@ const Product = (props) => {
           <Text style={{ color: 'rgba(9, 10, 10, 0.6)', textAlign: 'center' }}>{product.default_variant_features == null ? "equal null handling error" : product.default_variant_features.size}</Text>
         </View>
 
-        {/* <View style={{ justifyContent: "center", alignItems: "center", top: -50 }}> */}
         <View>
 
           <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -80,7 +73,6 @@ const Product = (props) => {
               </View>
             </View>
 
-            {/* <Button style={{ width: 90, height: 90, borderRadius: 5 }} title="Scan" onPress={() => props.navigation.navigate("Scan Code", { product })}></Button> */}
             <LinearGradient colors={['rgb(0, 232, 219)', 'rgb(92, 76, 219)']}
               useAngle={true}
               angle={45}
@@ -103,7 +95,6 @@ const Product = (props) => {
             </View>
           </View>
 
-          {/* <Button style={{ width: 90, height: 90, borderRadius: 5 }} title="Scan" onPress={() => props.navigation.navigate("Scan Code", { product })}></Button> */}
           <LinearGradient colors={['rgb(0, 232, 219)', 'rgb(92, 76, 219)']}
             useAngle={true}
             angle={45}

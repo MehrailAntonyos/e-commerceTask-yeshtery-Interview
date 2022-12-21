@@ -8,8 +8,7 @@ const ScanCode = (props) => {
   //   console.log("props", props)
   const [item, setCode] = useState(props.route.params.product);
 
-  console.log("scannnnn")
-  console.log("code", item)
+  // console.log("code", item)
 
   const { width } = Dimensions.get('screen');
   const leftTop = {
@@ -42,7 +41,6 @@ const ScanCode = (props) => {
   return (
 
     <View>
-      {/* <Text>Scan here</Text> */}
       <View style={{ flex: 1 }}>
 
         <Image source={require('./images/QRcode.jpg')} style={{ width: 150, height: 150, marginTop: 225, marginLeft: 105 }}></Image>
@@ -66,18 +64,12 @@ const ScanCode = (props) => {
           </View>
 
         </View>
-
       </View>
-
-
 
       <View>
 
         <Modal isVisible={modal}>
           <TouchableOpacity onPress={() => setModal(false)}>
-
-
-
             <View style={styles.starfive} />
             <View >
               <View style={styles.starfiveBefore} />
@@ -107,9 +99,6 @@ const ScanCode = (props) => {
               <View style={[styles.starfiveBefore, { borderBottomColor: 'rgba(90, 94, 106, 1)', left: 250, top: 50, borderRightWidth: 15, borderBottomWidth: 5, borderLeftWidth: 15 }]} />
               <View style={[styles.starfiveAfter, { borderBottomColor: 'rgba(90, 94, 106, 1)', left: 250, top: 50, borderRightWidth: 15, borderBottomWidth: 5, borderLeftWidth: 15 }]} />
             </View>
-            {/* <View style={{ backgroundColor: 'white', paddingVertical: 20, paddingHorizontal: 50, borderRadius: 10 }}>
-              <Text>{item.price}</Text>
-            </View> */}
 
             <LinearGradient colors={['rgb(0, 232, 219)', 'rgb(92, 76, 219)']}
               useAngle={true}
@@ -123,7 +112,7 @@ const ScanCode = (props) => {
 
       </View>
 
-        <MaterialIcons name="flash-on" onPress={() => setModal(true)} size={120} color="rgba(255, 255, 255, 1)" style={{top:450, left:120}} />
+      <MaterialIcons name="flash-on" onPress={() => setModal(true)} size={120} color="rgba(255, 255, 255, 1)" style={{ top: 450, left: 120 }} />
 
     </View >
 
